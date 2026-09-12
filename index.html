@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit Quita Pelusa + Guante Masajeador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1F3A2E;
+    --pine-deep:#142A21;
+    --linen:#F2ECE0;
+    --card:#FBF8F1;
+    --gold:#C98A2B;
+    --gold-dark:#A66F1F;
+    --taupe:#7C6B57;
+    --ink:#232019;
+    --line: rgba(31,58,46,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Public Sans', sans-serif;
+    background:var(--linen);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--pine-deep);
+    line-height:1.12;
+  }
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,236,224,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1120px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.15rem;
+    color:var(--pine-deep); display:flex; align-items:center; gap:8px;
+  }
+  .brand svg{width:26px; height:26px;}
+  .nav-cta{
+    background:var(--pine); color:var(--linen); border:none;
+    padding:10px 20px; border-radius:100px; font-size:0.92rem; font-weight:600;
+    cursor:pointer; transition:background .18s ease;
+  }
+  .nav-cta:hover{background:var(--pine-deep);}
+
+  /* HERO */
+  .hero{
+    padding:64px 0 40px;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 4vw, 3.1rem);
+    max-width:12ch;
+    margin-bottom:20px;
+  }
+  .hero p.lede{
+    font-size:1.13rem; color:var(--taupe); max-width:46ch; margin-bottom:28px;
+  }
+  .price-row{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:26px;
+  }
+  .price-now{font-family:'Fraunces', serif; font-size:2.1rem; font-weight:600; color:var(--pine-deep);}
+  .price-was{font-size:1.05rem; color:var(--taupe); text-decoration:line-through;}
+  .price-off{
+    background:var(--gold); color:#fff; font-size:0.82rem; font-weight:600;
+    padding:4px 10px; border-radius:100px;
+  }
+  .cta-primary{
+    display:inline-block; background:var(--gold); color:#fff; border:none;
+    padding:16px 32px; border-radius:100px; font-size:1.02rem; font-weight:700;
+    cursor:pointer; box-shadow:0 10px 24px rgba(201,138,43,0.32);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .cta-primary:hover{transform:translateY(-2px); box-shadow:0 14px 28px rgba(201,138,43,0.4);}
+  .hero-note{margin-top:16px; font-size:0.88rem; color:var(--taupe);}
+
+  .hero-art{position:relative;}
+  .art-badge{
+    position:absolute; top:-16px; left:-16px; background:var(--pine);
+    color:var(--linen); font-family:'Fraunces', serif; font-size:0.85rem;
+    padding:10px 16px; border-radius:14px; transform:rotate(-6deg);
+    box-shadow:0 8px 18px rgba(20,42,33,0.25); z-index:2;
+  }
+
+  /* PROBLEM */
+  .problem{padding:64px 0; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .problem h2{font-size:clamp(1.6rem,2.6vw,2.2rem); max-width:22ch; margin-bottom:14px;}
+  .problem .sub{color:var(--taupe); max-width:56ch; margin-bottom:40px; font-size:1.05rem;}
+  .problem-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .problem-card{padding:0;}
+  .problem-card svg{width:34px; height:34px; margin-bottom:14px;}
+  .problem-card h3{font-size:1.08rem; font-weight:600; margin-bottom:8px; color:var(--pine-deep);}
+  .problem-card p{color:var(--taupe); font-size:0.96rem;}
+
+  /* SOLUTION */
+  .solution{padding:72px 0;}
+  .solution .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
+  .solution h2{font-size:clamp(1.7rem,2.8vw,2.3rem); margin-bottom:18px;}
+  .feature-list{list-style:none; margin-top:26px;}
+  .feature-list li{
+    display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line);
+  }
+  .feature-list li:last-child{border-bottom:1px solid var(--line);}
+  .feature-list svg{width:20px; height:20px; flex:none; margin-top:3px; color:var(--gold);}
+  .feature-list .ftitle{font-weight:600; color:var(--pine-deep); margin-bottom:2px;}
+  .feature-list .fdesc{color:var(--taupe); font-size:0.93rem;}
+
+  /* STEPS */
+  .steps{padding:72px 0; background:var(--pine); color:var(--linen);}
+  .steps h2{color:var(--linen); font-size:clamp(1.7rem,2.8vw,2.3rem); margin-bottom:44px; max-width:20ch;}
+  .steps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px; position:relative;}
+  .step{position:relative; padding-left:0;}
+  .step-num{
+    font-family:'Fraunces', serif; font-size:0.95rem; color:var(--gold);
+    border:1px solid rgba(242,236,224,0.35); width:34px; height:34px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+  }
+  .step h3{color:var(--linen); font-size:1.12rem; margin-bottom:8px;}
+  .step p{color:rgba(242,236,224,0.72); font-size:0.95rem;}
+
+  /* TESTIMONIALS */
+  .testi{padding:72px 0;}
+  .testi h2{font-size:clamp(1.6rem,2.6vw,2.2rem); margin-bottom:40px; text-align:center;}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi-card{
+    background:var(--card); border:1px solid var(--line); border-radius:18px;
+    padding:26px; display:flex; flex-direction:column; gap:14px;
+  }
+  .stars{color:var(--gold); font-size:0.95rem; letter-spacing:2px;}
+  .testi-card p{color:var(--ink); font-size:0.98rem;}
+  .testi-name{font-weight:600; color:var(--pine-deep); font-size:0.92rem;}
+  .testi-loc{color:var(--taupe); font-size:0.85rem;}
+
+  /* CTA / PRICING */
+  .buy{padding:80px 0;}
+  .buy-box{
+    background:var(--card); border:1px solid var(--line); border-radius:26px;
+    padding:52px 48px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;
+  }
+  .buy h2{font-size:clamp(1.7rem,2.8vw,2.2rem); margin-bottom:14px;}
+  .buy p{color:var(--taupe); font-size:1.02rem; max-width:44ch;}
+  .buy-right{text-align:center;}
+  .guarantee{
+    margin-top:18px; display:flex; align-items:center; justify-content:center; gap:8px;
+    color:var(--taupe); font-size:0.88rem;
+  }
+  .guarantee svg{width:16px; height:16px; color:var(--pine);}
+
+  /* FAQ */
+  .faq{padding:72px 0 96px;}
+  .faq h2{font-size:clamp(1.6rem,2.6vw,2.2rem); margin-bottom:34px;}
+  .faq-item{border-top:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:20px 0; display:flex; justify-content:space-between; align-items:center;
+    font-family:'Fraunces', serif; font-size:1.05rem; color:var(--pine-deep);
+  }
+  .faq-q .plus{transition:transform .25s ease; color:var(--gold); font-size:1.3rem; font-weight:400;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .28s ease;
+    color:var(--taupe); font-size:0.96rem;
+  }
+  .faq-a-inner{padding-bottom:20px; max-width:60ch;}
+
+  footer{
+    background:var(--pine-deep); color:rgba(242,236,224,0.8);
+    padding:40px 0; font-size:0.88rem;
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  footer .brand{color:var(--linen);}
+
+  @media (max-width: 860px){
+    .hero .wrap, .solution .wrap{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .problem-grid, .steps-grid, .testi-grid{grid-template-columns:1fr;}
+    .buy-box{grid-template-columns:1fr; padding:36px 26px;}
+    nav{padding:14px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-4-2.8-8-6-8-10.2A5.3 5.3 0 0 1 9.3 5.5 5.6 5.6 0 0 1 12 7a5.6 5.6 0 0 1 2.7-1.5A5.3 5.3 0 0 1 20 10.8C20 15 16 18.2 12 21Z" stroke="#1F3A2E" stroke-width="1.6"/></svg>
+      Peluditos&nbsp;Hogar
+    </div>
+    <a class="nav-cta" href="https://wa.me/573132974166?text=Hola%2C%20quiero%20pedir%20el%20Kit%20Quita%20Pelusa%20%2B%20Guante%20Masajeador" target="_blank" rel="noopener" style="text-decoration:none; display:inline-block;">Comprar ahora</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Tu casa no tiene por qué verse cubierta de pelo todos los días</h1>
+      <p class="lede">Un guante que masajea a tu mascota mientras retira el pelo suelto, y que además limpia sofás, camas y hasta el carro en segundos.</p>
+      <div class="price-row">
+        <span class="price-now">$54.800</span>
+        <span class="price-was">$89.900</span>
+        <span class="price-off">-39%</span>
+      </div>
+      <a class="cta-primary" href="https://wa.me/573132974166?text=Hola%2C%20quiero%20pedir%20el%20Kit%20Quita%20Pelusa%20%2B%20Guante%20Masajeador" target="_blank" rel="noopener" style="text-decoration:none; display:inline-block;">Quiero el mío</a>
+      <p class="hero-note">Envíos a toda Colombia · Pago contraentrega disponible</p>
+    </div>
+    <div class="hero-art">
+      <div class="art-badge">180 puntas de silicona</div>
+      <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="190" cy="190" r="176" fill="#FBF8F1"/>
+        <g transform="translate(70,60)">
+          <path d="M110 8c-34 0-64 18-80 46-14 25-16 55-6 84 8 24 10 50 6 74-3 18 8 32 26 32h108c18 0 29-14 26-32-4-24-2-50 6-74 10-29 8-59-6-84-16-28-46-46-80-46Z" fill="#1F3A2E"/>
+          <g fill="#C98A2B">
+            <circle cx="55" cy="55" r="7"/><circle cx="90" cy="42" r="7"/><circle cx="128" cy="42" r="7"/><circle cx="163" cy="55" r="7"/>
+            <circle cx="45" cy="90" r="7"/><circle cx="80" cy="80" r="7"/><circle cx="110" cy="76" r="7"/><circle cx="142" cy="80" r="7"/><circle cx="173" cy="90" r="7"/>
+            <circle cx="42" cy="128" r="7"/><circle cx="75" cy="118" r="7"/><circle cx="109" cy="114" r="7"/><circle cx="142" cy="118" r="7"/><circle cx="176" cy="128" r="7"/>
+            <circle cx="48" cy="164" r="7"/><circle cx="82" cy="156" r="7"/><circle cx="110" cy="152" r="7"/><circle cx="140" cy="156" r="7"/><circle cx="170" cy="164" r="7"/>
+            <circle cx="60" cy="198" r="7"/><circle cx="92" cy="192" r="7"/><circle cx="120" cy="190" r="7"/><circle cx="150" cy="192" r="7"/><circle cx="160" cy="198" r="7"/>
+          </g>
+          <path d="M60 250c-6 20 4 34 22 34h56c18 0 28-14 22-34" stroke="#E4DCC9" stroke-width="4" fill="none"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <h2>Si tienes mascota, seguro esto te suena familiar</h2>
+    <p class="sub">Cepillos rígidos que tu perro o gato rechazan, pelo enredado en cada mueble y horas perdidas limpiando lo mismo cada semana.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v9m0 0-4-4m4 4 4-4M5 21h14" stroke="#1F3A2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>El pelo cae en todas partes</h3>
+        <p>Sofá, cama, ropa, tapete del carro: nunca se acaba de limpiar.</p>
+      </div>
+      <div class="problem-card">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="#1F3A2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Tu mascota se resiste al cepillo</h3>
+        <p>Las cerdas duras incomodan su piel y el cepillado se vuelve una pelea.</p>
+      </div>
+      <div class="problem-card">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#1F3A2E" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="#1F3A2E" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>Perder tiempo aseando la casa</h3>
+        <p>Aspiradoras y rodillos que solo levantan la mitad del pelo suelto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="wrap">
+    <div>
+      <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" style="border-radius:22px;">
+        <rect width="320" height="260" rx="22" fill="#1F3A2E"/>
+        <g transform="translate(60,30)">
+          <path d="M100 4c-30 0-56 16-70 40-12 22-14 48-6 74 8 22 9 46 5 66-3 16 7 28 23 28h96c16 0 26-12 23-28-4-20-3-44 5-66 8-26 6-52-6-74-14-24-40-40-70-40Z" fill="#FBF8F1"/>
+          <g fill="#C98A2B">
+            <circle cx="50" cy="48" r="6"/><circle cx="80" cy="36" r="6"/><circle cx="115" cy="36" r="6"/><circle cx="148" cy="48" r="6"/>
+            <circle cx="40" cy="80" r="6"/><circle cx="72" cy="72" r="6"/><circle cx="99" cy="68" r="6"/><circle cx="128" cy="72" r="6"/><circle cx="158" cy="80" r="6"/>
+            <circle cx="38" cy="114" r="6"/><circle cx="68" cy="106" r="6"/><circle cx="98" cy="102" r="6"/><circle cx="128" cy="106" r="6"/><circle cx="160" cy="114" r="6"/>
+            <circle cx="44" cy="148" r="6"/><circle cx="74" cy="140" r="6"/><circle cx="99" cy="136" r="6"/><circle cx="126" cy="140" r="6"/><circle cx="154" cy="148" r="6"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <h2>Un solo accesorio, dos problemas resueltos</h2>
+      <p style="color:var(--taupe); font-size:1.02rem;">El guante masajeador cuida a tu mascota mientras aseas, y su cara removedora de pelusa limpia tus espacios sin esfuerzo.</p>
+      <ul class="feature-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><div class="ftitle">180 puntas de silicona suave</div><div class="fdesc">Imitan el contacto de la mano: tu mascota lo disfruta como una caricia.</div></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><div class="ftitle">Función doble</div><div class="fdesc">Cepilla y masajea a tu mascota, y también retira pelusa de telas y tapizados.</div></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><div class="ftitle">Apto para todo tamaño y raza</div><div class="fdesc">De gatos pequeños a perros grandes, se ajusta a distintos tipos de pelaje.</div></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><div class="ftitle">Fácil de limpiar</div><div class="fdesc">El pelo queda adherido al guante y se retira en un solo movimiento.</div></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <h2>Así de simple es usarlo</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Ponte el guante</h3>
+        <p>Se ajusta a tu mano como un guante común, sin correas ni ajustes complicados.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Masajea a tu mascota</h3>
+        <p>Pasa el guante sobre su pelaje: el pelo suelto queda atrapado en las puntas de silicona.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Limpia tus espacios</h3>
+        <p>Usa el mismo guante en sofás, camas o el carro para retirar pelusa y pelos sueltos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <div class="wrap">
+    <h2>Lo que dicen quienes ya lo probaron</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>Mi gato ya no huye cuando lo cepillo. Y de paso limpié el sofá que tenía lleno de pelo.</p>
+        <div><div class="testi-name">Diana R.</div><div class="testi-loc">Soacha, Cundinamarca</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>Lo uso en el carro después de llevar a mi perro al parque. Queda como nuevo.</p>
+        <div><div class="testi-name">Camilo P.</div><div class="testi-loc">Bogotá</div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>Pensé que era exagerado el antes y después, pero de verdad reduce el pelo en casa.</p>
+        <div><div class="testi-name">Laura M.</div><div class="testi-loc">Medellín</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="buy" id="comprar">
+  <div class="wrap">
+    <div class="buy-box">
+      <div>
+        <h2>Dile adiós a los pelos en casa hoy mismo</h2>
+        <p>Pide tu Kit Quita Pelusa + Guante Masajeador con envío a toda Colombia y precio de lanzamiento.</p>
+      </div>
+      <div class="buy-right">
+        <div class="price-row" style="justify-content:center;">
+          <span class="price-now">$54.800</span>
+          <span class="price-was">$89.900</span>
+        </div>
+        <a class="cta-primary" href="https://wa.me/573132974166?text=Hola%2C%20quiero%20pedir%20el%20Kit%20Quita%20Pelusa%20%2B%20Guante%20Masajeador" target="_blank" rel="noopener" style="width:100%; text-decoration:none; display:block; text-align:center;">Comprar ahora</a>
+        <div class="guarantee">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          Pago contraentrega y envío a todo el país
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <button class="faq-q">¿Sirve para perros y gatos de cualquier tamaño?<span class="plus">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí, el guante se ajusta a distintos tamaños de mano y funciona bien en mascotas pequeñas, medianas y grandes.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Cómo se limpia el guante después de usarlo?<span class="plus">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">El pelo queda adherido a las puntas de silicona; solo debes retirarlo con la mano o enjuagar el guante con agua.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿Hacen envíos a toda Colombia?<span class="plus">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Sí, realizamos envíos a nivel nacional, con opción de pago contraentrega en las principales ciudades.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">¿El producto puede irritar la piel de mi mascota?<span class="plus">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">No, las puntas de silicona son suaves y están diseñadas para imitar el masaje de una mano, sin maltratar la piel.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">Peluditos Hogar</div>
+    <div>© 2026 · Colombia · Todos los derechos reservados</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
